@@ -57,11 +57,11 @@
 					<h2>COMMUNITY</h2>
 					<input type="text" class="form-control" id="community">
 				</div>
-				<div class="col-lg-12">
+				<div class="col-lg-12 set" style="display:none;">
 					<h2>VALUE</h2>
 					<input type="text" class="form-control" id="setvalue">
 				</div>
-				<div class="col-lg-12">
+				<div class="col-lg-12 set" style="display:none;">
 					<h2>TYPE</h2>
 					<select id="settype" class="form-control">
 						<option value="">SELECT</option>
@@ -75,17 +75,44 @@
 					<button type="button" id="go" class="btn btn-success">GO</button>
 				</div>
 			</div>
+			<div class="col-lg-8">
+				<div class="col-lg-12 error_div">
+				</div>
+				<div class="col-lg-12 success_div">
+				</div>
+			</div>
 		</div>
 
 		<!-- Bootstrap core JavaScript -->
-		<script src="vendor/jquery/jquery.slim.min.js"></script>
-		<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="  crossorigin="anonymous"></script>
 		
 		<script>
 
 			$(document).ready(function(){
+
+				$("#method").change(function(){
+					if ($(this).val() == "SET"){
+						$(".set").show();
+					} else {
+						$(".set").hide();
+					}
+				});
+				
 				$("#go").click(function(){
-					console.log("fff");
+					$(".error_div,.success_div").html('');
+					$.ajax({
+	                    type: 'get',
+	                    async: true,
+	                    data: "method="+($("#method").val())+"&oid="+($("#oid").val())+"&ip="+($("#ip").val())+"&community="+($("#community").val())+"&setvalue="+($("#setvalue").val())+"&settype="+($("#settype").val()), 
+	                    url: 'snmp_mib.php',
+	                    success: function(res) {
+	                    	$(".success_div").html(res);
+	                    }, error: function(res) {
+	                        $(".error_div").html('error');
+	                    }
+	               });
+
+					
 				});
 			});
 
