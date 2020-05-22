@@ -4,7 +4,8 @@ A simple MIB browser with built PHP
 
 <h3>Linux Installation</h3>
 
-Run command: apt-get install php php-snmp
+Run command: <br>apt-get install php php-snmp
+<br>
 Or check SNMP module is enabled on your PHP installation
 
 <h3>Usage</h3>
