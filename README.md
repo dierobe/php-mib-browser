@@ -12,6 +12,8 @@ Or check SNMP module is enabled on your PHP installation
 
 Place the project in your web server directory and enjoy!
 
+<h4> Get Example: </h4>
 <img src="http://meteorito.cloud/assets/snmpget.png" />
 <hr>
+<h4> Walk Example: </h4>
 <img src="http://meteorito.cloud/assets/snmpwalk.png" />
