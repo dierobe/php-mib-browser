@@ -13,3 +13,5 @@ Or check SNMP module is enabled on your PHP installation
 Place the project in your web server directory and enjoy!
 
 <img src="http://meteorito.cloud/assets/snmpget.png" />
+<hr>
+<img src="http://meteorito.cloud/assets/snmpwalk.png" />
